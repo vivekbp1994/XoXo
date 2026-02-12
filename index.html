@@ -106,12 +106,11 @@
 
     .buttons {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 20px;
-      flex-wrap: wrap;
-      min-height: 80px;
-      position: relative;
+      min-height: 120px;
     }
 
     .btn-yes {
@@ -143,7 +142,7 @@
       font-weight: 600;
       border-radius: 50px;
       cursor: pointer;
-      position: absolute;
+      position: relative;
       transition: none;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       user-select: none;
