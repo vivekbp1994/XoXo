@@ -325,24 +325,7 @@
       100%{ opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0); }
     }
 
-    /* Free tier badge */
-    .free-badge {
-      position: absolute;
-      top: -6px;
-      right: -6px;
-      background: linear-gradient(135deg, #ff9800, #f57c00);
-      color: white;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 14px;
-      border-radius: 20px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      box-shadow: 0 3px 10px rgba(255, 152, 0, 0.4);
-      display: none;
-    }
-
-    /* Branding watermark for free tier */
+    /* Branding watermark */
     .branding-watermark {
       position: fixed;
       bottom: 12px;
@@ -350,7 +333,6 @@
       width: 100%;
       text-align: center;
       z-index: 50;
-      display: none;
     }
 
     .branding-watermark a {
@@ -381,7 +363,6 @@
 
   <!-- Question card -->
   <div class="card" id="questionCard">
-    <div class="free-badge" id="freeBadge">Free</div>
     <div class="avatar-glow" id="avatarGlow">
       <div class="avatar-display neutral" id="avatarDisplay"></div>
     </div>
@@ -406,12 +387,12 @@
     <p class="celeb-message" id="celebMessage"></p>
   </div>
 
-  <!-- Viral CTA (free tier only) -->
+  <!-- Viral CTA -->
   <div class="cta-footer" id="ctaFooter" style="display:none;">
-    <a class="cta-link" id="ctaLink">&#x1F48C; Create your own Valentine card &mdash; Free or $1</a>
+    <a class="cta-link" id="ctaLink">&#x1F48C; Create your own Valentine card &mdash; It's free!</a>
   </div>
 
-  <!-- Branding watermark (free tier only) -->
+  <!-- Branding watermark -->
   <div class="branding-watermark" id="brandingWatermark">
     <a href="" id="brandingLink">Made with &#x2764;&#xFE0F; at ihave1question.vercel.app</a>
   </div>
@@ -422,15 +403,9 @@
     const recipientName = params.get('name') || '';
     const avatarId = params.get('avatar') || '1';
     const customMsg = params.get('msg') || '';
-    const isFreeTier = params.get('tier') === 'free';
 
-    // ---- Free tier: show badge + branding watermark ----
-    if (isFreeTier) {
-      document.getElementById('freeBadge').style.display = 'block';
-      document.getElementById('brandingWatermark').style.display = 'block';
-      const brandingLink = document.getElementById('brandingLink');
-      brandingLink.href = window.location.href.replace(/\/[^/]*$/, '/') + 'index.html';
-    }
+    // ---- Branding watermark link ----
+    document.getElementById('brandingLink').href = window.location.href.replace(/\/[^/]*$/, '/') + 'index.html';
 
     // ---- Avatar data ----
     const avatarData = {
@@ -596,15 +571,13 @@
       const celebration = document.getElementById('celebration');
       celebration.classList.add('active');
 
-      // Show CTA after a short delay (free tier only)
-      if (isFreeTier) {
-        setTimeout(() => {
-          const ctaFooter = document.getElementById('ctaFooter');
-          ctaFooter.style.display = 'block';
-          const ctaLink = document.getElementById('ctaLink');
-          ctaLink.href = window.location.href.replace(/\/[^/]*$/, '/') + 'index.html';
-        }, 3000);
-      }
+      // Show CTA after a short delay
+      setTimeout(() => {
+        const ctaFooter = document.getElementById('ctaFooter');
+        ctaFooter.style.display = 'block';
+        const ctaLink = document.getElementById('ctaLink');
+        ctaLink.href = window.location.href.replace(/\/[^/]*$/, '/') + 'index.html';
+      }, 3000);
 
       launchConfetti();
       launchPopperBursts();
@@ -688,5 +661,6 @@
       for (let i = 0; i < 15; i++) setTimeout(spawnHeart, i * 100);
     }
   </script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
