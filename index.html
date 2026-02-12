@@ -74,128 +74,7 @@
       line-height: 1.5;
     }
 
-    /* ---- Pricing Section ---- */
-    .pricing {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-
-    .plan-card {
-      background: rgba(255,255,255,0.95);
-      border-radius: 20px;
-      padding: 28px 24px;
-      text-align: center;
-      box-shadow: 0 10px 40px rgba(233,30,99,0.15);
-      border: 3px solid transparent;
-      transition: all 0.3s;
-      position: relative;
-    }
-
-    .plan-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 50px rgba(233,30,99,0.25);
-    }
-
-    .plan-card.premium {
-      border-color: #e91e63;
-    }
-
-    .popular-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, #e91e63, #c2185b);
-      color: white;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 16px;
-      border-radius: 20px;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
-
-    .plan-icon { font-size: 48px; margin-bottom: 12px; display: block; }
-    .plan-card h3 { font-size: 20px; color: #c2185b; margin-bottom: 4px; }
-
-    .plan-price {
-      font-size: 36px;
-      font-weight: 800;
-      color: #333;
-      margin-bottom: 16px;
-    }
-
-    .plan-features {
-      list-style: none;
-      text-align: left;
-      margin-bottom: 24px;
-    }
-
-    .plan-features li {
-      padding: 5px 0;
-      font-size: 14px;
-      color: #555;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .plan-features li .check { color: #4caf50; font-weight: 700; }
-    .plan-features li .cross { color: #ccc; font-weight: 700; }
-    .plan-features li.locked { color: #bbb; }
-
-    .btn-plan {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 50px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s;
-      letter-spacing: 0.5px;
-    }
-
-    .btn-plan.free-btn {
-      background: #f8bbd0;
-      color: #c2185b;
-    }
-
-    .btn-plan.free-btn:hover {
-      background: #f48fb1;
-      color: white;
-    }
-
-    .btn-plan.premium-btn {
-      background: linear-gradient(135deg, #e91e63, #c2185b);
-      color: white;
-      box-shadow: 0 4px 15px rgba(233,30,99,0.4);
-    }
-
-    .btn-plan.premium-btn:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 20px rgba(233,30,99,0.5);
-    }
-
-    /* ---- Section visibility ---- */
-    .section-hidden { display: none; }
-
-    /* ---- Free Section ---- */
-    .free-section {
-      background: rgba(255,255,255,0.95);
-      border-radius: 24px;
-      padding: 40px 32px;
-      box-shadow: 0 20px 60px rgba(233,30,99,0.25);
-      text-align: center;
-    }
-
-    .free-preview { font-size: 64px; margin-bottom: 16px; }
-    .free-section h3 { color: #c2185b; font-size: 22px; margin-bottom: 8px; }
-    .free-section p { color: #777; font-size: 14px; margin-bottom: 24px; line-height: 1.5; }
-
-    /* ---- Premium Form ---- */
+    /* ---- Creator Form ---- */
     .creator-card {
       background: rgba(255,255,255,0.95);
       border-radius: 24px;
@@ -355,19 +234,6 @@
       transform: none;
     }
 
-    .btn-back {
-      background: none;
-      border: none;
-      color: #e91e63;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-bottom: 20px;
-      padding: 8px 0;
-    }
-
-    .btn-back:hover { text-decoration: underline; }
-
     /* Link result */
     .link-result {
       display: none;
@@ -458,10 +324,9 @@
     }
 
     @media (max-width: 600px) {
-      .pricing { grid-template-columns: 1fr; }
       .hero h1 { font-size: 26px; }
       .avatar-grid { grid-template-columns: repeat(2, 1fr); }
-      .creator-card, .free-section { padding: 28px 20px; }
+      .creator-card { padding: 28px 20px; }
       .link-box { flex-direction: column; }
     }
   </style>
@@ -477,67 +342,8 @@
       <p>Create a fun, interactive valentine card. Share the link and watch the magic happen!</p>
     </div>
 
-    <!-- ======== PRICING SECTION ======== -->
-    <div class="pricing" id="pricingSection">
-      <!-- Free Plan -->
-      <div class="plan-card" id="planFree">
-        <span class="plan-icon">&#x1F9F8;</span>
-        <h3>Free Valentine</h3>
-        <div class="plan-price">Free</div>
-        <ul class="plan-features">
-          <li><span class="check">&#x2713;</span> Cute teddy bear avatar</li>
-          <li><span class="check">&#x2713;</span> Classic valentine message</li>
-          <li><span class="check">&#x2713;</span> Fun "No" button animation</li>
-          <li><span class="check">&#x2713;</span> Confetti celebration</li>
-          <li class="locked"><span class="cross">&#x2717;</span> Personalized name</li>
-          <li class="locked"><span class="cross">&#x2717;</span> Choose avatar</li>
-          <li class="locked"><span class="cross">&#x2717;</span> Custom message</li>
-        </ul>
-        <button class="btn-plan free-btn" id="btnChooseFree">Send Free Valentine</button>
-      </div>
-
-      <!-- Premium Plan -->
-      <div class="plan-card premium" id="planPremium">
-        <div class="popular-badge">MOST POPULAR</div>
-        <span class="plan-icon">&#x1F496;</span>
-        <h3>Custom Valentine</h3>
-        <div class="plan-price"><span style="font-size:20px;vertical-align:super;">$</span>1</div>
-        <ul class="plan-features">
-          <li><span class="check">&#x2713;</span> 6 cute couple avatars</li>
-          <li><span class="check">&#x2713;</span> Personalize with their name</li>
-          <li><span class="check">&#x2713;</span> Add a custom message</li>
-          <li><span class="check">&#x2713;</span> Fun "No" button animation</li>
-          <li><span class="check">&#x2713;</span> Confetti celebration</li>
-          <li><span class="check">&#x2713;</span> All premium avatars</li>
-        </ul>
-        <button class="btn-plan premium-btn" id="btnChoosePremium">Customize for $1</button>
-      </div>
-    </div>
-
-    <!-- ======== FREE SECTION ======== -->
-    <div class="free-section section-hidden" id="freeSection">
-      <button class="btn-back" id="btnBackFree">&#x2190; Back to plans</button>
-      <div class="free-preview">&#x1F9F8;&#x2764;&#xFE0F;&#x1F9F8;</div>
-      <h3>Your Free Valentine is Ready!</h3>
-      <p>A cute teddy bear valentine with the classic "Will you be my Valentine?" message, fun escaping No button, and confetti celebration.</p>
-      <button class="btn-generate" id="btnGenerateFree">Generate Free Valentine Link &#x1F496;</button>
-      <div class="link-result" id="freeLinkResult">
-        <h3>&#x1F389; Your valentine link is ready!</h3>
-        <div class="link-box">
-          <input type="text" class="link-url" id="freeLinkUrl" readonly>
-          <button class="btn-copy" id="freeBtnCopy">Copy</button>
-        </div>
-        <div class="share-buttons">
-          <button class="btn-share whatsapp" id="freeShareWhatsapp">WhatsApp</button>
-          <button class="btn-share telegram" id="freeShareTelegram">Telegram</button>
-          <button class="btn-share twitter" id="freeShareTwitter">Twitter</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ======== PREMIUM SECTION ======== -->
-    <div class="creator-card section-hidden" id="premiumSection">
-      <button class="btn-back" id="btnBackPremium">&#x2190; Back to plans</button>
+    <!-- ======== CREATOR FORM ======== -->
+    <div class="creator-card">
 
       <!-- Step 1: Name -->
       <div class="step">
@@ -622,34 +428,8 @@
   </div>
 
   <script>
-    /* =====================================================
-       CONFIGURATION - Replace with your Stripe Payment Link
-       =====================================================
-       1. Go to https://dashboard.stripe.com/payment-links
-       2. Create a new Payment Link for $1.00
-       3. Set "After payment" redirect to:
-          https://YOUR-SITE-URL/index.html?payment=success
-       4. Paste the payment link URL below
-       ===================================================== */
-    const STRIPE_PAYMENT_LINK = '';  // e.g. 'https://buy.stripe.com/abc123'
-
     // ---- Base URL for generating valentine links ----
     const BASE_URL = window.location.href.replace(/\?.*$/, '').replace(/\/[^/]*$/, '/');
-
-    // ---- Check for payment success redirect ----
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('payment') === 'success') {
-      localStorage.setItem('valentinePremium', Date.now().toString());
-      history.replaceState(null, '', window.location.pathname);
-    }
-
-    // Premium is valid for 24 hours after payment
-    function isPremiumUnlocked() {
-      const ts = localStorage.getItem('valentinePremium');
-      if (!ts) return false;
-      const elapsed = Date.now() - parseInt(ts, 10);
-      return elapsed < 24 * 60 * 60 * 1000;
-    }
 
     // ---- Floating background hearts ----
     const heartsContainer = document.getElementById('floatingHearts');
@@ -668,72 +448,7 @@
     setInterval(spawnFloatingHeart, 800);
     for (let i = 0; i < 8; i++) setTimeout(spawnFloatingHeart, i * 250);
 
-    // ---- Section management ----
-    const pricingSection = document.getElementById('pricingSection');
-    const freeSection = document.getElementById('freeSection');
-    const premiumSection = document.getElementById('premiumSection');
-
-    function showSection(section) {
-      pricingSection.classList.add('section-hidden');
-      freeSection.classList.add('section-hidden');
-      premiumSection.classList.add('section-hidden');
-      section.classList.remove('section-hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // ---- Plan selection ----
-    document.getElementById('btnChooseFree').addEventListener('click', () => {
-      showSection(freeSection);
-    });
-
-    document.getElementById('btnChoosePremium').addEventListener('click', () => {
-      if (isPremiumUnlocked()) {
-        showSection(premiumSection);
-        return;
-      }
-
-      if (!STRIPE_PAYMENT_LINK) {
-        alert('Payment not configured yet. Set your Stripe Payment Link in the code.');
-        return;
-      }
-      sessionStorage.setItem('openPremium', 'true');
-      window.location.href = STRIPE_PAYMENT_LINK;
-    });
-
-    // Back buttons
-    document.getElementById('btnBackFree').addEventListener('click', () => showSection(pricingSection));
-    document.getElementById('btnBackPremium').addEventListener('click', () => showSection(pricingSection));
-
-    // If we just returned from Stripe payment, auto-open premium form
-    if (isPremiumUnlocked() && sessionStorage.getItem('openPremium')) {
-      showSection(premiumSection);
-      sessionStorage.removeItem('openPremium');
-    }
-
-    // ---- FREE VALENTINE GENERATION ----
-    document.getElementById('btnGenerateFree').addEventListener('click', () => {
-      const link = BASE_URL + 'valentine.html?avatar=1&tier=free';
-
-      const freeLinkUrl = document.getElementById('freeLinkUrl');
-      freeLinkUrl.value = link;
-
-      const freeLinkResult = document.getElementById('freeLinkResult');
-      freeLinkResult.classList.add('visible');
-      freeLinkResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-      setupShareButtons(link, 'free');
-    });
-
-    // Free copy button
-    document.getElementById('freeBtnCopy').addEventListener('click', function() {
-      navigator.clipboard.writeText(document.getElementById('freeLinkUrl').value).then(() => {
-        this.textContent = 'Copied!';
-        this.classList.add('copied');
-        setTimeout(() => { this.textContent = 'Copy'; this.classList.remove('copied'); }, 2000);
-      });
-    });
-
-    // ---- PREMIUM FORM LOGIC ----
+    // ---- FORM LOGIC ----
     const avatarData = {
       '1': { sender: '\uD83D\uDC3B', receiver: '\uD83D\uDC3B\u200D\u2744\uFE0F', name: 'Bear Couple' },
       '2': { sender: '\uD83E\uDDD1', receiver: '\uD83E\uDDD1', name: 'Classic' },
@@ -795,7 +510,7 @@
       return div.innerHTML;
     }
 
-    // Generate premium link
+    // Generate link
     btnGenerate.addEventListener('click', () => {
       const name = nameInput.value.trim();
       if (!name) return;
@@ -815,10 +530,10 @@
       linkResult.classList.add('visible');
       linkResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-      setupShareButtons(link, 'premium');
+      setupShareButtons(link);
     });
 
-    // Premium copy button
+    // Copy button
     document.getElementById('btnCopy').addEventListener('click', function() {
       navigator.clipboard.writeText(document.getElementById('linkUrl').value).then(() => {
         this.textContent = 'Copied!';
@@ -827,25 +542,21 @@
       });
     });
 
-    // ---- SHARE BUTTONS (both tiers) ----
-    function setupShareButtons(link, tier) {
+    // ---- SHARE BUTTONS ----
+    function setupShareButtons(link) {
       const shareText = 'Someone has a Valentine surprise for you! \uD83D\uDC96';
-      const prefix = tier === 'free' ? 'free' : '';
 
-      const whatsappBtn = document.getElementById(prefix ? 'freeShareWhatsapp' : 'shareWhatsapp');
-      const telegramBtn = document.getElementById(prefix ? 'freeShareTelegram' : 'shareTelegram');
-      const twitterBtn = document.getElementById(prefix ? 'freeShareTwitter' : 'shareTwitter');
-
-      whatsappBtn.onclick = () => {
+      document.getElementById('shareWhatsapp').onclick = () => {
         window.open('https://wa.me/?text=' + encodeURIComponent(shareText + '\n' + link), '_blank');
       };
-      telegramBtn.onclick = () => {
+      document.getElementById('shareTelegram').onclick = () => {
         window.open('https://t.me/share/url?url=' + encodeURIComponent(link) + '&text=' + encodeURIComponent(shareText), '_blank');
       };
-      twitterBtn.onclick = () => {
+      document.getElementById('shareTwitter').onclick = () => {
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n' + link), '_blank');
       };
     }
   </script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
